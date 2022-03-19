@@ -1,5 +1,5 @@
 py manage.py shell
-from newsapp.models import *
+from news.models import *
 
 u1 = User.objects.create_user(username = ‘Senya’)
 
