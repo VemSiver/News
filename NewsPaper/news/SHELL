@@ -35,14 +35,14 @@ a.update.rating()
 a.ratingdAuthor
 
 
-a = Author.objects.order_by(‘-ratingAuthor’)[:1]
+a = Author.objects.order_by('-ratingAuthor')[:1]
 for I in a:
     i.ratingAuthor
     i.authorUser.username
 
 a = Post.objects.filter(categoryType='AR').order_by('-rating')[:1]
 for i in a:
-	i.dateCreation.strftime("%Y-%m-%d")
+	i.dateCreation.strftime('%Y-%m-%d')
 	i.author.authorUser.username
 	i.rating
 	i.title
@@ -50,9 +50,10 @@ for i in a:
 	best_ar_id = i.id
 
 a = Comment.objects.filter(commentPost=best_ar_id)
-for i in c:
-	i.dateCreation.strftime("%Y-%m-%d")
+for i in a:
+	i.dateCreation.strftime('%Y-%m-%d')
 	i.commentUser.username
 	i.rating
 	i.text
+
 
