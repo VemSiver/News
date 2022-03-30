@@ -7,7 +7,7 @@ class PostList(ListView):
     model = Post
     template_name = 'post.html'
     context_object_name = 'post'
-    queryset = Post.objects.all()
+    queryset = Post.objects.order_by("-id")
 
     # метод get_context_data нужен нам для того, чтобы мы могли передать переменные в шаблон. В возвращаемом словаре context будут храниться все переменные. Ключи этого словаря и есть переменные, к которым мы сможем потом обратиться через шаблон
     def get_context_data(self, **kwargs):

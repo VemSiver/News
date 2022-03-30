@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from django.core.validators import MinValueValidator
 
 
 class Author(models.Model):
@@ -22,9 +23,13 @@ class Author(models.Model):
         self.save()
 
 
+# class Category(models.Model):
+#     name = models.CharField(max_length=64, unique=True)
 class Category(models.Model):
-    name = models.CharField(max_length=64, unique=True)
+    name = models.CharField(max_length=15)
 
+    def __str__(self):
+        return f'{self.name}'
 
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -40,6 +45,8 @@ class Post(models.Model):
     title = models.CharField(max_length=128)
     text = models.TextField()
     rating = models.SmallIntegerField(default=0)
+
+
 
     def like(self):
         self.rating += 1
